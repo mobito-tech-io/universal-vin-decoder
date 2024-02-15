@@ -25,6 +25,13 @@ export interface VINDecoded {
 }
 
 export const validateVIN = (vin: string) => {
+  if (typeof vin !== 'string') {
+    return {
+      isValid: false,
+      error: 'VIN must be a string',
+    };
+  }
+
   vin = vin.toUpperCase();
 
   if (vin.length !== 17) {

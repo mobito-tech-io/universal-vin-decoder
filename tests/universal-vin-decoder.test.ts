@@ -54,6 +54,11 @@ describe('Universal VIN Decoder', () => {
         error: 'VIN contain only letters & numbers except from I, O and Q',
       });
     });
+    //@ts-ignore
+    expect(validateVIN(['W1K3FBCB3PN300965'])).toEqual({
+      isValid: false,
+      error: 'VIN must be a string',
+    });
   });
 
   describe('#Split VIN', () => {
