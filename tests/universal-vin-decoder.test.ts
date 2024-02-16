@@ -25,9 +25,16 @@ describe('Universal VIN Decoder', () => {
 
   describe('#Manufacturer', () => {
     test('Manufacturers are loaded correctly.', () => {
-      expect(getManufacturer('WDB')).toEqual('Mercedes-Benz');
-      expect(getManufacturer('VF1')).toBe('Renault');
-      expect(getManufacturer('KND')).toEqual('Kia SUV');
+      expect(getManufacturer('WDB')).toEqual('Mercedes-Benz & Maybach');
+      expect(getManufacturer('VF1')).toBe(
+        'Renault & Eagle Medallion made by Renault',
+      );
+      expect(getManufacturer('KND')).toEqual('Kia SUV/MPV & Hyundai Entourage');
+
+      // Scraped manufacturers
+      expect(getManufacturer('516')).toEqual('Autocar truck');
+      expect(getManufacturer('7A8')).toEqual('NZ Transport Agency (pre-2009)');
+      expect(getManufacturer('97N')).toEqual('Triumph Motorcycles Ltd');
     });
   });
 
@@ -119,7 +126,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Europe',
           country: 'Germany',
           modelYear: '-',
-          manufacturer: 'BMW',
+          manufacturer: 'BMW car',
         },
       });
       // At 10th digit 0, which is invalid
@@ -130,7 +137,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Europe',
           country: 'Germany',
           modelYear: '-',
-          manufacturer: 'BMW',
+          manufacturer: 'BMW car',
         },
       });
       expect(decodeVIN('WBAYH110105V51473')).toEqual({
@@ -140,7 +147,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Europe',
           country: 'Germany',
           modelYear: '-',
-          manufacturer: 'BMW',
+          manufacturer: 'BMW car',
         },
       });
     });
@@ -152,7 +159,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Europe',
           country: 'United Kingdom',
           modelYear: '-',
-          manufacturer: 'Toyota UK',
+          manufacturer: 'Toyota Manufacturing UK',
         },
       });
       expect(decodeVIN('NMTK33BXX0R132738')).toEqual({
@@ -162,7 +169,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Asia',
           country: 'Turkey',
           modelYear: '-',
-          manufacturer: 'Toyota Türkiye',
+          manufacturer: 'Toyota Motor Manufacturing Turkey',
         },
       });
       expect(decodeVIN('YARKBAC3200025492')).toEqual({
@@ -172,7 +179,8 @@ describe('Universal VIN Decoder', () => {
           region: 'Europe',
           country: 'Belgium',
           modelYear: '-',
-          manufacturer: 'Toyota Belgium',
+          manufacturer:
+            'Toyota Motor Europe (based in Belgium) used for Toyota ProAce & Toyota ProAce City',
         },
       });
     });
@@ -184,7 +192,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Europe',
           country: 'France',
           modelYear: '2007',
-          manufacturer: 'Renault',
+          manufacturer: 'Renault & Eagle Medallion made by Renault',
         },
       });
       expect(decodeVIN('VF1RJK00870326167')).toEqual({
@@ -194,7 +202,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Europe',
           country: 'France',
           modelYear: '2007',
-          manufacturer: 'Renault',
+          manufacturer: 'Renault & Eagle Medallion made by Renault',
         },
       });
       expect(decodeVIN('VF1RJK00870326167')).toEqual({
@@ -204,7 +212,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Europe',
           country: 'France',
           modelYear: '2007',
-          manufacturer: 'Renault',
+          manufacturer: 'Renault & Eagle Medallion made by Renault',
         },
       });
     });
@@ -248,7 +256,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Asia',
           country: 'South Korea',
           modelYear: '1993',
-          manufacturer: 'Kia',
+          manufacturer: 'Kia car',
         },
       });
       expect(decodeVIN('KNADA818AP6838826')).toEqual({
@@ -258,7 +266,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Asia',
           country: 'South Korea',
           modelYear: '1993',
-          manufacturer: 'Kia',
+          manufacturer: 'Kia car',
         },
       });
       expect(decodeVIN('KNADA818ART907403')).toEqual({
@@ -268,7 +276,7 @@ describe('Universal VIN Decoder', () => {
           region: 'Asia',
           country: 'South Korea',
           modelYear: '1994',
-          manufacturer: 'Kia',
+          manufacturer: 'Kia car',
         },
       });
     });
