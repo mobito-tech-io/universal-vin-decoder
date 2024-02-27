@@ -2,22 +2,34 @@
   "name": "universal-vin-decoder",
   "version": "1.0.0",
   "description": "An NPM package to decode Vehicle Identification Numbers (VIN)",
+  "author": "Mobito",
+  "homepage": "https://github.com/mobito-tech-io/universal-vin-decoder",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mobito-tech-io/universal-vin-decoder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mobito-tech-io/universal-vin-decoder/issues"
+  },
+  "keywords": [
+    "vin-decoder",
+    "vin"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsup",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepublishOnly": "pnpm run lint && pnpm run test && pnpm run build"
   },
-  "keywords": [
-    "vin-decoder"
-  ],
-  "author": "Mobito",
-  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.11",
     "@types/node": "^20.11.18",
