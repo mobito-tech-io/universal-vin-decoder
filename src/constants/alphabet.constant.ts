@@ -38,4 +38,3 @@ export const ALPHABET_INDEX = ALPHABET_CHARS.map((v, i) => [v, i]).reduce(
   (acc, [v, i]) => ({ ...acc, [v]: i }),
   {},
 );
-

@@ -10,7 +10,7 @@ export const getModelYear = (vin: string): string => {
   const validationCharacter = vin.substring(6, 7);
 
   // Check if the validationCharacter is a Number
-  let modelYear: string = /^\d+$/.test(validationCharacter)
+  const modelYear: string = /^\d+$/.test(validationCharacter)
     ? candidateYears?.find((year) => year < 2010)?.toString() || '-'
     : candidateYears?.find((year) => year >= 2010)?.toString() || '-';
 

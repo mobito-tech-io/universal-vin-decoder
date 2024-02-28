@@ -19,22 +19,22 @@ export enum regions {
   'X' = 'Europe',
   'Y' = 'Europe',
   'Z' = 'Europe',
-  // @ts-ignore
+  // @ts-expect-error duplicate
   '1' = 'North America',
-  // @ts-ignore
+  // @ts-expect-error duplicate
   '2' = 'North America',
-  // @ts-ignore
+  // @ts-expect-error duplicate
   '3' = 'North America',
-  // @ts-ignore
+  // @ts-expect-error duplicate
   '4' = 'North America',
-  // @ts-ignore
+  // @ts-expect-error duplicate
   '5' = 'North America',
-  // @ts-ignore
+  // @ts-expect-error duplicate
   '6' = 'Oceania',
-  // @ts-ignore
+  // @ts-expect-error duplicate
   '7' = 'Oceania',
-  // @ts-ignore
+  // @ts-expect-error duplicate
   '8' = 'South America',
-  // @ts-ignore
+  // @ts-expect-error duplicate
   '9' = 'South America',
 }
